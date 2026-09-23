@@ -1,0 +1,227 @@
+/* ==========================================================================
+   Blackhawk Trading Co. — site stylesheet (replaces the Muse CSS)
+   Colors are pulled from the old site: the mauve sidebar (#8C5864) and the
+   sunset orange from the banner photo.
+   ========================================================================== */
+
+:root {
+  --mauve:        #8C5864;
+  --mauve-dark:   #6E424D;
+  --sunset:       #D9642B;
+  --sunset-dark:  #B24E1D;
+  --ink:          #2B2226;
+  --muted:        #6B5E62;
+  --paper:        #FBF8F5;
+  --card:         #FFFFFF;
+  --line:         #E6DDD8;
+  --radius:       10px;
+  --sidebar-w:    220px;
+  --max-w:        1280px;
+  --font-body:    Georgia, "Palatino Linotype", Palatino, "Times New Roman", serif;
+  --font-ui:      system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--mauve-dark); }
+a:hover { color: var(--sunset-dark); }
+
+h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
+h1 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+h2 { font-size: 1.35rem; }
+
+/* ---------- Banner ---------- */
+.site-header { background: #3a2a2e; }
+.banner-link { display: block; max-width: var(--max-w); margin: 0 auto; }
+.banner-link img { width: 100%; }
+
+/* ---------- Page layout: sidebar + content ---------- */
+.layout {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  gap: 2rem;
+  padding: 1.5rem 1.5rem 3rem;
+}
+
+.content { min-width: 0; }
+.content > section + section { margin-top: 2.5rem; }
+
+/* ---------- Sidebar navigation ---------- */
+.sidenav {
+  background: var(--mauve);
+  border-radius: var(--radius);
+  padding: .5rem 0;
+  align-self: start;
+  position: sticky;
+  top: 1rem;
+  font-family: var(--font-ui);
+}
+
+.sidenav ul { list-style: none; margin: 0; padding: 0; }
+
+.sidenav a {
+  display: block;
+  padding: .45rem 1.1rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: .95rem;
+}
+.sidenav a:hover,
+.sidenav a:focus-visible { background: rgba(255,255,255,.15); }
+.sidenav a[aria-current="page"] {
+  background: rgba(0,0,0,.2);
+  box-shadow: inset 4px 0 0 var(--sunset);
+  font-weight: 600;
+}
+
+/* The "Menu" button only shows on small screens */
+.sidenav-toggle { display: none; }
+
+/* ---------- Hero ---------- */
+.hero {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+.eyebrow {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--sunset-dark);
+  margin: 0 0 .5rem;
+}
+.lede { color: var(--muted); max-width: 60ch; margin: 0 0 1.5rem; }
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.btn {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  padding: .7rem 1.3rem;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.btn-primary { background: var(--sunset); color: #fff; }
+.btn-primary:hover { background: var(--sunset-dark); color: #fff; }
+.btn-secondary { border: 2px solid var(--mauve); color: var(--mauve-dark); }
+.btn-secondary:hover { background: var(--mauve); color: #fff; }
+
+/* ---------- Size strip ---------- */
+.size-list {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: .5rem;
+}
+.size-list a {
+  display: block;
+  font-family: var(--font-ui);
+  padding: .45rem .95rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  text-decoration: none;
+  color: var(--ink);
+}
+.size-list a:hover { border-color: var(--mauve); color: var(--mauve-dark); }
+
+/* ---------- Category cards ---------- */
+.card-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1rem;
+}
+.card {
+  display: flex; flex-direction: column; height: 100%;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+.card:hover {
+  border-color: var(--mauve);
+  box-shadow: 0 6px 18px rgba(60,30,40,.12);
+  transform: translateY(-2px);
+  color: var(--ink);
+}
+.card-img {
+  display: flex; align-items: center; justify-content: center;
+  height: 160px;
+  margin-bottom: .75rem;
+}
+.card-img img { max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+.card-title { font-weight: 700; font-size: 1.1rem; }
+.card-text { color: var(--muted); font-size: .95rem; }
+
+/* ---------- About / contact band ---------- */
+.promise {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+.promise p { margin: 0 0 .75rem; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--mauve-dark);
+  color: #f3e9ec;
+  font-family: var(--font-ui);
+  font-size: .9rem;
+}
+.site-footer a { color: #fff; }
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex; flex-wrap: wrap; gap: 1rem 3rem;
+}
+.footer-inner p { margin: 0; }
+.copyright { margin-left: auto !important; align-self: flex-end; opacity: .8; }
+
+/* ---------- Tablets and phones ---------- */
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; gap: 1.25rem; padding: 1rem 1rem 2rem; }
+
+  .sidenav { position: static; }
+  .sidenav-toggle {
+    display: block; width: 100%;
+    background: none; border: 0; color: #fff;
+    font: 600 1rem var(--font-ui);
+    text-align: left; padding: .6rem 1.1rem; cursor: pointer;
+  }
+  .sidenav-toggle::after { content: " \25BE"; }
+  .sidenav.open .sidenav-toggle::after { content: " \25B4"; }
+  /* Menu is collapsed only when JavaScript is running; without JS it stays open */
+  .sidenav.js-collapsible ul { display: none; }
+  .sidenav.js-collapsible.open ul { display: block; }
+
+  .hero, .promise { padding: 1.25rem; }
+  .promise { grid-template-columns: 1fr; gap: 1rem; }
+  .card-grid { grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+  .card-img { height: 120px; }
+  .copyright { margin-left: 0 !important; }
+}
