@@ -34,7 +34,6 @@ $navItems = [
     'returns.html'             => 'Returns',
     'specialssale.html'        => 'Specials / Sale',
     'rarecollectible.html'     => 'Rare / Collectible',
-    'overstock-sale.html'      => 'Overstock Sale',
     'the-vault.html'           => 'The Vault',
     'new-designs.html'         => 'New Designs',
     'orders-pricing.html'      => 'Orders & Pricing',

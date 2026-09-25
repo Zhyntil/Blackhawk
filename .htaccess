@@ -10,3 +10,6 @@
 # Blackhawk rebuild: load the new PHP landing page first, and send old /index.html links to the home page
 DirectoryIndex index.php index.html
 RedirectMatch 301 ^/index\.html$ /
+
+# Overstock Sale page retired 2026-09 — send old links and bookmarks to Specials / Sale
+RedirectMatch 301 ^/overstock-sale\.html$ /specialssale.html
