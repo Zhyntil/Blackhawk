@@ -13,7 +13,7 @@ $pageDescription = $pageDescription ?? 'Blackhawk Trading Co. — American-made 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= htmlspecialchars($pageTitle) ?></title>
   <meta name="description" content="<?= htmlspecialchars($pageDescription) ?>">
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/site.css?v=3">
 </head>
 <body>
 

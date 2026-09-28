@@ -11,5 +11,15 @@
 DirectoryIndex index.php index.html
 RedirectMatch 301 ^/index\.html$ /
 
-# Overstock Sale page retired 2026-09 — send old links and bookmarks to Specials / Sale
-RedirectMatch 301 ^/overstock-sale\.html$ /specialssale.html
+# Overstock Sale page retired 2026-09 — send old links and bookmarks to the home page
+RedirectMatch 301 ^/overstock-sale\.html$ /
+
+# Specials / Sale hidden 2026-09-28 until we decide what to do with it.
+# 302 = temporary, so search engines keep the page. Delete this line to bring it back.
+RedirectMatch 302 ^/specialssale\.html$ /
+
+# Blackhawk rebuild: run .html pages through PHP so rebuilt pages can use the shared
+# header/nav/footer includes while keeping their original URLs (no redirects needed).
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php83 .html
+</IfModule>

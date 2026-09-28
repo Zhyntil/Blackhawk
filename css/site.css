@@ -185,6 +185,95 @@ h2 { font-size: 1.35rem; }
 }
 .promise p { margin: 0 0 .75rem; }
 
+/* ---------- Standard content pages (About, Returns, etc.) ---------- */
+.page-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 900px;
+}
+.page-card::after { content: ""; display: table; clear: both; } /* contain the floated image */
+.page-card p { margin: 0 0 1rem; max-width: 70ch; }
+.page-figure {
+  float: right;
+  width: 240px;
+  margin: 0 0 1rem 2rem;
+}
+.signature { margin-top: 1.5rem; }
+
+/* ---------- Product pages (rebuilt Muse pages) ---------- */
+.page-card--wide { max-width: none; }
+.product-page h2 { margin-top: 2rem; }
+.product-page h1 + .pager { margin-top: -.25rem; }
+
+.product-grid {
+  list-style: none;
+  margin: 1rem 0 1.75rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1.25rem .75rem;
+  align-items: start;
+}
+.product-grid--wide { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.product-grid--full { grid-template-columns: 1fr; }
+
+/* Each card spans two shared rows (picture, then caption), so every
+   caption in a row starts at the same height even when pictures differ. */
+.product {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
+  row-gap: .4rem;
+  justify-items: center;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: .85rem;
+  line-height: 1.35;
+}
+.product-img {
+  display: flex; gap: .5rem; align-items: flex-end; justify-content: center;
+  align-self: end;
+  max-width: 100%;
+}
+.product-img img { min-width: 0; max-width: 100%; height: auto; }
+.product-info { display: flex; flex-direction: column; }
+.product-code { font-weight: 700; color: var(--ink); }
+.product-note { color: var(--muted); }
+
+.note { font-size: .95rem; color: var(--muted); }
+
+/* Page 1 / 2 links on Pewter and Concho Belts */
+.pager { font-family: var(--font-ui); margin: 0 0 1rem; color: var(--muted); }
+.pager a {
+  display: inline-block; margin-left: .25rem; padding: .1rem .65rem;
+  border: 1px solid var(--line); border-radius: 999px; text-decoration: none;
+}
+.pager a[aria-current="page"] { background: var(--mauve); border-color: var(--mauve); color: #fff; }
+
+/* A photo with labels printed over it (Options, Plain Buttons).
+   Label positions are percentages, so they stay put as the photo shrinks. */
+.overlay-figure { position: relative; width: fit-content; max-width: 100%; margin: 1rem 0 1.75rem; }
+.overlay-figure img { display: block; }
+.overlay-label {
+  position: absolute;
+  text-align: center;
+  font: 600 clamp(.5rem, 1.25vw, .85rem)/1.2 var(--font-ui);
+  color: var(--ink);
+}
+
+/* Contact / orders buttons and address */
+.contact-block { font-style: normal; margin: 0 0 1.25rem; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+/* Specialty Backings */
+.backing { display: flex; gap: 1.5rem; align-items: center; margin: 1.25rem 0; }
+.backing img { flex: 0 0 auto; max-width: 40%; }
+.backing h2 { margin: 0 0 .5rem; }
+.price-list { list-style: none; margin: 0; padding: 0; font-family: var(--font-ui); }
+.price-list span { display: inline-block; min-width: 3.5rem; font-weight: 700; }
+
 /* ---------- Footer ---------- */
 .site-footer {
   background: var(--mauve-dark);
@@ -219,9 +308,12 @@ h2 { font-size: 1.35rem; }
   .sidenav.js-collapsible ul { display: none; }
   .sidenav.js-collapsible.open ul { display: block; }
 
-  .hero, .promise { padding: 1.25rem; }
+  .hero, .promise, .page-card { padding: 1.25rem; }
+  .page-figure { float: none; width: 180px; margin: 0 auto 1rem; }
   .promise { grid-template-columns: 1fr; gap: 1rem; }
   .card-grid { grid-template-columns: repeat(2, 1fr); gap: .75rem; }
   .card-img { height: 120px; }
   .copyright { margin-left: 0 !important; }
+  .product-grid--wide { grid-template-columns: 1fr; }
+  .backing { flex-direction: column; align-items: flex-start; }
 }

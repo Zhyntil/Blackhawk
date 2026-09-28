@@ -68,7 +68,7 @@ $sizes = [
 
     <section class="promise">
       <div>
-        <h2>Minority owned, made in America</h2>
+        <h2>100% Made in America</h2>
         <p>
           Blackhawk Trading Co. has been mastering the art of fine stamped metal since 1984.
           No order is too small or too large, and we ship all over the world.
