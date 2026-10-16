@@ -42,6 +42,7 @@ cache/
 *.swp
 *~
 /Claude outputs/
+/lwHostsCheck.php
 
 # Database exports and backups
 *.sql
