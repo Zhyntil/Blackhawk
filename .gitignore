@@ -41,6 +41,7 @@ cache/
 *.orig
 *.swp
 *~
+/Claude outputs/
 
 # Database exports and backups
 *.sql
